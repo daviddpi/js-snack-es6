@@ -9,21 +9,23 @@
 //funzione che crea un nuovo array copiandolo da uno esistente scegliendo gli indici di partenza e fine da copiare
 //usando filter
 function newArrayFromIndex(array, indexStart, indexEnd){
-    let newArray = array.filter((element, index) =>  {return index >= indexStart && index <= indexEnd});
+    let newArray = array.filter((element, index) =>  index >= indexStart && index <= indexEnd);
     return newArray;
 }
 
-//usando ForEach
-function newArrayFromIndexForEach(array, indexStart, indexEnd ){
-    const newArray = [];
-    array.forEach((element,index)  => { (index >= indexStart && index <= indexEnd) ? newArray.push(element) : false});
-    return newArray;
+//usando ForEach forma 
+function newArrayFromIndexForEach(array, indexStart, indexEnd){
+    let newArray2 = [];
+    array.forEach((element, index) =>  {
+        (index >= indexStart && index <= indexEnd) ? newArray2.push(element) : false
+    });
+    return newArray2;
 }
 
 
 const macchine = ["ferrari" ,"audi", "bugatti", "bmw", "bentley", "aston martin", "jaguar" ,"maserati"];
-const nuoveMacchine = newArrayFromIndex(macchine, 1, 4);
-const nuoveMacchine2 = newArrayFromIndexForEach(macchine, 0, 2);
+const nuoveMacchine = newArrayFromIndex(macchine, 0, 2);
+const nuoveMacchine2 = newArrayFromIndexForEach(macchine, 1, 4);
 
 console.table(macchine);
 console.table("Copia usando filter:", nuoveMacchine);
